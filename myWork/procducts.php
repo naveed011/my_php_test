@@ -19,7 +19,7 @@ $products = R::findAll('products');
 
 <div class="container">
     <div class="row">
-        <?php foreach ($products as $product){
+        <?php if($products){foreach ($products as $product){
        ?>
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
@@ -30,7 +30,9 @@ $products = R::findAll('products');
                 </div>
             </div>
         </div>
-        <?php }  ?>
+        <?php } }else{  ?>
+        <h1 class="text-center">No Product Found</h1>
+        <?php } ?>
     </div>
 </div>
 
