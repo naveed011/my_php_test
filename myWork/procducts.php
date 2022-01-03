@@ -2,7 +2,11 @@
 
 
 
-include_once 'con.php';
+include_once 'mysql-adapter.php';
+
+$object = new MySqlAdapter();
+$con = $object->get_connection();
+
 
 $products = R::findAll('products');
 ?>

@@ -1,7 +1,10 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-include_once '../con.php';
+
+include_once '../mysql-adapter.php';
+
+$object = new MySqlAdapter();
+$con = $object->get_connection();
+
 //include Stripe PHP library
 require_once('../lib/stripe/init.php');
 

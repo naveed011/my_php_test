@@ -1,9 +1,15 @@
-
-
 <?php
+
+include_once 'mysql-adapter.php';
+
+$object = new MySqlAdapter();
+$con = $object->get_connection();
+
 $url = $_SERVER['REQUEST_URI'];
 $id = array_slice(explode('/', $url), -1)[0];
-include_once 'con.php';?>
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
