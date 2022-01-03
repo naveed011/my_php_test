@@ -22,7 +22,7 @@ $products = R::findAll('products');
                 <img class="card-img-top" src="<?= $product->image ?>"  onerror="this.onerror=null;this.src='images/default.jpg';" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><?= $product->title ?></h5>
-                    <a href="/productDetail.php?id=<?= $product->id ?>" class="btn btn-primary">Detail</a>
+                    <a href="/detail/<?= $product->id ?>" class="btn btn-primary">Detail</a>
                 </div>
             </div>
         </div>

@@ -1,40 +1,28 @@
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<!------ Include the above in your HEAD tag ---------->
-
+<?php
+$url = $_SERVER['REQUEST_URI'];
+$id = array_slice(explode('/', $url), -1)[0];
+include_once 'con.php';
+require_once('lib/stripe/init.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>eCommerce Product Detail</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!-- Bootstrap CSS -->
-    </body>
 
 </head>
-
 <body>
 
 
 <?php
-include_once 'con.php';
-
-require_once('lib/stripe/init.php');
-
-//$stripe = new \Stripe\StripeClient('sk_test_krzb8hGSrijniuIT8N5VbbtT');
-//$customer = $stripe->customers->create([
-//    'description' => 'example customer',
-//    'email' => '786muhammadnaveed@gmail.com',
-//    'payment_method' => 'pm_card_visa',
-//]);
-//echo $customer;
 
 
-$id = ( isset($_GET['id']) && !empty($_GET['id']) ) ? $_GET['id'] : 0;
+$id = ( isset($id ) && !empty($id ) ) ? $id : 0;
 if($id > 0) {
 
 $detail = R::load('products', $id);
@@ -54,11 +42,11 @@ $detail = R::load('products', $id);
                     <h3 class="product-title"><?= $detail->title; ?></h3>
 
                     <p class="product-description"><?= $detail->description; ?></p>
-                    <h4 class="price">current price: <span>Pkr <?= $detail->price; ?></span></h4>
+                    <h4 class="price">current price: <span>$ <?= $detail->price; ?></span></h4>
 
                     <div class="action">
                         <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Buy Now</button>
 
 
 
@@ -68,7 +56,7 @@ $detail = R::load('products', $id);
                                 <div class="col-xs-12 col-md-4">
                                     <div class="panel panel-default" style="width: 500%;">
                                         <div class="panel-body">
-                                            <form action="order.php" method="post" name="cardpayment" id="payment-form">
+                                            <form action="/order.php" method="post" name="cardpayment" id="payment-form">
 
                                                 <input type="hidden" name="stripeToken" id="stripeToken">
                                                 <input type="hidden" name="order_id" value="<?= $detail->id ?>">

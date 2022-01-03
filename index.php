@@ -2,8 +2,11 @@
 require 'flight/Flight.php';
 
 function hello(){
-
     include ('procducts.php');
+}
+
+function productDetail(){
+    include ("productDetail.php");
 }
 
 function stripe(){
@@ -12,9 +15,7 @@ function stripe(){
 
 Flight::route('/', 'hello');
 
-Flight::route('/detail/@id', function($name, $id){
-    include ("productDetail.php?id=$id");
-});
+Flight::route('/detail/@id', 'productDetail');
 
 Flight::route('/stripe', 'stripe');
 

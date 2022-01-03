@@ -46,13 +46,13 @@ if(!empty($_POST['stripeToken'])) {
     $itemNumber = $_POST['order_id'];
     $itemPrice = $_POST['price'];
     $totalAmount = $_POST['price'];
-    $currency = 'Pkr';
+    $currency = 'Usd';
     $orderNumber = $_POST['order_id'];
 
     // details for which payment performed
     $payDetails = \Stripe\Charge::create(array(
         'customer' => $customer->id,
-        'amount' => $totalAmount*1000,
+        'amount' => $totalAmount,
         'currency' => $currency,
         'description' => $itemName,
         'metadata' => array(
