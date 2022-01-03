@@ -9,9 +9,9 @@ class MySqlAdapter
   public function __construct ()
   {
     $hostname = 'localhost';
-    $database = 'database name';
+    $database = 'test';
     $user_name = 'root';
-    $password = 'root';
+    $password = 'faQeeri-786';
     R::setup( "mysql:host={$hostname};dbname={$database}", "{$user_name}", "{$password}" );
     $this->_con = R::getToolBox();
   }
