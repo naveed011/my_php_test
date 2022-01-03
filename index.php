@@ -2,15 +2,15 @@
 require 'flight/Flight.php';
 
 function hello(){
-    include ('procducts.php');
+    include('myWork/procducts.php');
 }
 
 function productDetail(){
-    include ("productDetail.php");
+    include("myWork/productDetail.php");
 }
 
 function stripe(){
-    include ("order.php");
+    include("myWork/order.php");
 }
 
 Flight::route('/', 'hello');

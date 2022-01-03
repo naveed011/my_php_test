@@ -1,7 +1,9 @@
 <?php
-
-
-include_once 'con.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include_once '../con.php';
+//include Stripe PHP library
+require_once('../lib/stripe/init.php');
 
 if(!empty($_POST['stripeToken'])) {
 
@@ -21,8 +23,7 @@ if(!empty($_POST['stripeToken'])) {
     $cardExpMonth = $_POST['email'];
     $cardExpYear = $_POST['year'];
 
-    //include Stripe PHP library
-    require_once('lib/stripe/init.php');
+
 
     //set stripe secret key and publishable key
     $stripe = array(

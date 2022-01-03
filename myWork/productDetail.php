@@ -3,8 +3,7 @@
 <?php
 $url = $_SERVER['REQUEST_URI'];
 $id = array_slice(explode('/', $url), -1)[0];
-include_once 'con.php';
-require_once('lib/stripe/init.php'); ?>
+include_once 'con.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +55,7 @@ $detail = R::load('products', $id);
                                 <div class="col-xs-12 col-md-4">
                                     <div class="panel panel-default" style="width: 500%;">
                                         <div class="panel-body">
-                                            <form action="/order.php" method="post" name="cardpayment" id="payment-form">
+                                            <form action="/myWork/order.php" method="post" name="cardpayment" id="payment-form">
 
                                                 <input type="hidden" name="stripeToken" id="stripeToken">
                                                 <input type="hidden" name="order_id" value="<?= $detail->id ?>">

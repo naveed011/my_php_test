@@ -1,0 +1,39 @@
+-- Adminer 4.8.1 MySQL 8.0.27-0ubuntu0.21.10.1 dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+SET NAMES utf8mb4;
+
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` varchar(255) DEFAULT NULL,
+  `stripe_id` varchar(255) DEFAULT NULL,
+  `total` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `order` (`id`, `product_id`, `stripe_id`, `total`, `status`) VALUES
+(1,	'1',	'ch_3KDsPLJaXHZTpCQP1gmzu0yH',	'100000',	'success'),
+(2,	'1',	'ch_3KDsQiJaXHZTpCQP1QSuUDa4',	'100000',	'success'),
+(3,	'1',	'ch_3KDsRQJaXHZTpCQP0EunHP4H',	'100000',	'success'),
+(4,	'1',	'ch_3KDsUqJaXHZTpCQP1pxF47S5',	'100000',	'success');
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(256) NOT NULL,
+  `description` varchar(599) NOT NULL,
+  `price` int NOT NULL,
+  `image` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `image`) VALUES
+(1,	'Shirt',	'Some quick example text to build on the card title and make up the bulk of the card\'s content',	100,	'http://placekitten.com/400/252');
+
+-- 2022-01-03 15:32:56
