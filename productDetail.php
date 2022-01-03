@@ -122,7 +122,7 @@ $detail = R::load('products', $id);
                                                     <div class="payment-errors"></div>
                                                 </div>
                                                 <div class="button-style">
-                                                    <button class="button login submit">Paynow <?= $detail->price ?></button>
+                                                    <button class="button login submit">Paynow </button>
                                                 </div>
                                             </form>
                                         </div>
